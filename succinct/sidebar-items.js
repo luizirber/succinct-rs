@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"mod":[["int_vec","Bit-packed vectors of `N`-bit unsigned integers."]]});

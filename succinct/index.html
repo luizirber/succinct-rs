@@ -47,14 +47,14 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-23' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-29' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Succinct Data Structures for Rust</p>
 
 <h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>It’s <a href="https://crates.io/crates/succinct">on crates.io</a>, so you can add</p>
 
 <pre><code class="language-toml">[dependencies]
-succinct = &quot;0.0.0&quot;
+succinct = &quot;*&quot;
 </code></pre>
 
 <p>to your <code>Cargo.toml</code> and</p>
@@ -63,7 +63,17 @@ succinct = &quot;0.0.0&quot;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>succinct</span>;</pre>
 
 <p>to your crate root.</p>
-</div></table></section>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class='mod'
+                                       href='./int_vec/index.html'>int_vec</a>::<a class='struct' href='../succinct/int_vec/struct.IntVec.html' title='succinct::int_vec::IntVec'>IntVec</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='int_vec/index.html'
+                                  title='succinct::int_vec'>int_vec</a></td>
+                           <td class='docblock short'>
+                                <p>Bit-packed vectors of <code>N</code>-bit unsigned integers.</p>
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

@@ -66,6 +66,11 @@
 <span id="22">22</span>
 <span id="23">23</span>
 <span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Succinct Data Structures for Rust</span>
 <span class='doccomment'>//!</span>
@@ -75,7 +80,7 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! ```toml</span>
 <span class='doccomment'>//! [dependencies]</span>
-<span class='doccomment'>//! succinct = &quot;0.0.0&quot;</span>
+<span class='doccomment'>//! succinct = &quot;*&quot;</span>
 <span class='doccomment'>//! ```</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! to your `Cargo.toml` and</span>
@@ -91,6 +96,11 @@
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;clippy&quot;</span>, <span class='ident'>feature</span>(<span class='ident'>plugin</span>))]</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;clippy&quot;</span>, <span class='ident'>plugin</span>(<span class='ident'>clippy</span>))]</span>
 
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>num</span>;
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>typenum</span>;
+
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>int_vec</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>int_vec</span>::<span class='ident'>IntVec</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
