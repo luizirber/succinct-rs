@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `int_vec` mod in crate `succinct`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, int_vec">
+    <meta name="description" content="API documentation for the Rust `rank` mod in crate `succinct`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, rank">
 
-    <title>succinct::int_vec - Rust</title>
+    <title>succinct::rank - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'int_vec', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'rank', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -43,41 +43,19 @@
     </nav>
 
     <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class='mod' href=''>int_vec</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class='mod' href=''>rank</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-44' class='srclink' href='../../src/succinct/src/int_vec/mod.rs.html#1-689' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Bit-packed vectors of <em>k</em>-bit unsigned integers.</p>
+               </span><a id='src-604' class='srclink' href='../../src/succinct/src/rank.rs.html#1-136' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Data structure to support fast rank queries.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVec.html'
-                                  title='succinct::int_vec::IntVec'>IntVec</a></td>
+                           <td><a class='struct' href='struct.RankSupport.html'
+                                  title='succinct::rank::RankSupport'>RankSupport</a></td>
                            <td class='docblock short'>
-                                <p>A vector of <em>k</em>-bit unsigned integers, where <em>k</em> is dynamic.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVecBuilder.html'
-                                  title='succinct::int_vec::IntVecBuilder'>IntVecBuilder</a></td>
-                           <td class='docblock short'>
-                                <p>Builder for configuring and constructing an <code>IntVec</code>.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Iter.html'
-                                  title='succinct::int_vec::Iter'>Iter</a></td>
-                           <td class='docblock short'>
-                                <p>An iterator over the elements of an <a href="struct.IntVec.html"><code>IntVec</code></a>.</p>
-                           </td>
-                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Fill.html'
-                                  title='succinct::int_vec::Fill'>Fill</a></td>
-                           <td class='docblock short'>
-                                <p>Describes how to initialize the memory of an <code>IntVec</code>.</p>
+                                <p>Add-on to <code>BitVector</code> to support fast rank queries.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

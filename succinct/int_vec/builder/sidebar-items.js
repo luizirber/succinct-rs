@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["IntVecBuilder","Builder for configuring and constructing an `IntVec`."]]});

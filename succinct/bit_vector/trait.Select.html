@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `int_vec` mod in crate `succinct`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, int_vec">
+    <meta name="description" content="API documentation for the Rust `Select` trait in crate `succinct`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Select">
 
-    <title>succinct::int_vec - Rust</title>
+    <title>succinct::bit_vector::Select - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'int_vec', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>bit_vector</a></p><script>window.sidebarCurrent = {name: 'Select', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,44 +42,25 @@
         </form>
     </nav>
 
-    <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class='mod' href=''>int_vec</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>bit_vector</a>::<wbr><a class='trait' href=''>Select</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-44' class='srclink' href='../../src/succinct/src/int_vec/mod.rs.html#1-689' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Bit-packed vectors of <em>k</em>-bit unsigned integers.</p>
-</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVec.html'
-                                  title='succinct::int_vec::IntVec'>IntVec</a></td>
-                           <td class='docblock short'>
-                                <p>A vector of <em>k</em>-bit unsigned integers, where <em>k</em> is dynamic.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVecBuilder.html'
-                                  title='succinct::int_vec::IntVecBuilder'>IntVecBuilder</a></td>
-                           <td class='docblock short'>
-                                <p>Builder for configuring and constructing an <code>IntVec</code>.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Iter.html'
-                                  title='succinct::int_vec::Iter'>Iter</a></td>
-                           <td class='docblock short'>
-                                <p>An iterator over the elements of an <a href="struct.IntVec.html"><code>IntVec</code></a>.</p>
-                           </td>
-                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Fill.html'
-                                  title='succinct::int_vec::Fill'>Fill</a></td>
-                           <td class='docblock short'>
-                                <p>Describes how to initialize the memory of an <code>IntVec</code>.</p>
-                           </td>
-                       </tr></table></section>
+               </span><a id='src-599' class='srclink' href='../../src/succinct/src/bit_vector.rs.html#87-90' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Select {
+    fn <a href='#tymethod.select' class='fnname'>select</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>;
+}</pre><div class='docblock'><p>Interface for types that support select queries.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.select' class='method stab '><code>fn <a href='#tymethod.select' class='fnname'>select</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h3><div class='docblock'><p>Returns the position of the <code>index</code>th 1 bit.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../../implementors/succinct/bit_vector/trait.Select.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
