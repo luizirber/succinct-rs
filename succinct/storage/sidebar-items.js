@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["BitStore","Interface for read-only bit vector operations."],["BitStoreMut","Interface for mutable bit vector operations."],["BlockType","Types that can be used for `IntVec` storage."]]});

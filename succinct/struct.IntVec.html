@@ -47,13 +47,16 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-113' class='srclink' href='../src/succinct/src/int_vec/mod.rs.html#19-23' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-72' class='srclink' href='../src/succinct/src/int_vec/mod.rs.html#21-25' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct IntVec&lt;Block: <a class='trait' href='../succinct/trait.BlockType.html' title='succinct::BlockType'>BlockType</a> = <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; {
     // some fields omitted
-}</pre><div class='docblock'><p>A vector of <em>k</em>-bit unsigned integers, where <em>k</em> is dynamic.</p>
+}</pre><div class='docblock'><p>A vector of <em>k</em>-bit unsigned integers, where <em>k</em> is determined at
+run time.</p>
 
-<p>Construct with <a href="#method.new"><code>IntVec::new</code></a>.
-<code>Block</code> gives the representation type. The element size <em>k</em> can
+<p>Construct with <a href="#method.new"><code>IntVec::new</code></a>, or for more control,
+<a href="struct.IntVecBuilder.html"><code>IntVecBuilder</code></a>.</p>
+
+<p><code>Block</code> gives the representation type. The element size <em>k</em> can
 never exceed the number of bits in <code>Block</code>.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;Block: <a class='trait' href='../num_traits/int/trait.PrimInt.html' title='num_traits::int::PrimInt'>PrimInt</a>&gt; <a class='struct' href='../succinct/struct.IntVec.html' title='succinct::IntVec'>IntVec</a>&lt;Block&gt;</code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(element_bits: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h4>
 <div class='docblock'><p>Creates a new integer vector.</p>
@@ -88,6 +91,10 @@ division rounded up) doesn’t fit in a <code>usize</code>.</li>
 <div class='docblock'><p>Returns the element at the given index.</p>
 </div><h4 id='method.set' class='method'><code>fn <a href='#method.set' class='fnname'>set</a>(&amp;mut self, element_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, element_value: Block)</code></h4>
 <div class='docblock'><p>Sets the element at the given index.</p>
+
+<h1 id='panics' class='section-header'><a href='#panics'>Panics</a></h1>
+<p>Debug mode only: Panics if <code>element_value</code> is too large to
+fit in the element size. (TODO: What’s the right thing here?)</p>
 </div><h4 id='method.push' class='method'><code>fn <a href='#method.push' class='fnname'>push</a>(&amp;mut self, element_value: Block)</code></h4>
 <div class='docblock'><p>Pushes an element onto the end of the vector, increasing the
 length by 1.</p>
@@ -104,7 +111,7 @@ inserted in the given <code>IntVec&lt;Block&gt;</code>.</p>
 <p>The collection may reserve more space to avoid frequent
 reallocations.</p>
 
-<h1 id='panics' class='section-header'><a href='#panics'>Panics</a></h1>
+<h1 id='panics-1' class='section-header'><a href='#panics-1'>Panics</a></h1>
 <p>Panics if the size conditions of
 <a href="struct.IntVec.html#method.is_okay_size"><code>IntVec::&lt;Block&gt;::is_okay_size()</code></a>
 are not met. This will happen if the total number of bits
@@ -116,7 +123,7 @@ inserted in the given <code>IntVec&lt;Block&gt;</code>.</p>
 <p>Unlike <a href="#method.reserve"><code>reserve</code></a>, does nothing if the
 capacity is already sufficient.</p>
 
-<h1 id='panics-1' class='section-header'><a href='#panics-1'>Panics</a></h1>
+<h1 id='panics-2' class='section-header'><a href='#panics-2'>Panics</a></h1>
 <p>Panics if the size conditions of
 <a href="struct.IntVec.html#method.is_okay_size"><code>IntVec::&lt;Block&gt;::is_okay_size()</code></a>
 are not met. This will happen if the total number of bits
@@ -149,7 +156,14 @@ layout is not specified.</p>
 <div class='docblock'><p>True if elements are packed one per block.</p>
 </div><h4 id='method.is_aligned' class='method'><code>fn <a href='#method.is_aligned' class='fnname'>is_aligned</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
 <div class='docblock'><p>True if elements are aligned within blocks.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a, Block: <a class='trait' href='../succinct/trait.BlockType.html' title='succinct::BlockType'>BlockType</a> + 'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html' title='core::iter::IntoIterator'>IntoIterator</a> for &amp;'a <a class='struct' href='../succinct/struct.IntVec.html' title='succinct::IntVec'>IntVec</a>&lt;Block&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Item' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html#associatedtype.Item' class='type'>Item</a> = Block</code></h4>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;Block: <a class='trait' href='../succinct/trait.BlockType.html' title='succinct::BlockType'>BlockType</a>&gt; <a class='trait' href='../succinct/trait.BitStore.html' title='succinct::BitStore'>BitStore</a> for <a class='struct' href='../succinct/struct.IntVec.html' title='succinct::IntVec'>IntVec</a>&lt;Block&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Block' class='type'><code>type <a href='../succinct/trait.BitStore.html#associatedtype.Block' class='type'>Block</a> = Block</code></h4>
+<h4 id='method.block_len' class='method'><code>fn <a href='../succinct/trait.BitStore.html#tymethod.block_len' class='fnname'>block_len</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.bit_len' class='method'><code>fn <a href='../succinct/trait.BitStore.html#method.bit_len' class='fnname'>bit_len</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<h4 id='method.get_block' class='method'><code>fn <a href='../succinct/trait.BitStore.html#tymethod.get_block' class='fnname'>get_block</a>(&amp;self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Block</code></h4>
+<h4 id='method.get_bit' class='method'><code>fn <a href='../succinct/trait.BitStore.html#method.get_bit' class='fnname'>get_bit</a>(&amp;self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;Block: <a class='trait' href='../succinct/trait.BlockType.html' title='succinct::BlockType'>BlockType</a>&gt; <a class='trait' href='../succinct/trait.BitStoreMut.html' title='succinct::BitStoreMut'>BitStoreMut</a> for <a class='struct' href='../succinct/struct.IntVec.html' title='succinct::IntVec'>IntVec</a>&lt;Block&gt;</code></h3><div class='impl-items'><h4 id='method.set_block' class='method'><code>fn <a href='../succinct/trait.BitStoreMut.html#tymethod.set_block' class='fnname'>set_block</a>(&amp;mut self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, value: Block)</code></h4>
+<h4 id='method.set_bit' class='method'><code>fn <a href='../succinct/trait.BitStoreMut.html#method.set_bit' class='fnname'>set_bit</a>(&amp;mut self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, Block: <a class='trait' href='../succinct/trait.BlockType.html' title='succinct::BlockType'>BlockType</a> + 'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html' title='core::iter::IntoIterator'>IntoIterator</a> for &amp;'a <a class='struct' href='../succinct/struct.IntVec.html' title='succinct::IntVec'>IntVec</a>&lt;Block&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Item' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html#associatedtype.Item' class='type'>Item</a> = Block</code></h4>
 <h4 id='associatedtype.IntoIter' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html#associatedtype.IntoIter' class='type'>IntoIter</a> = Iter&lt;'a, Block&gt;</code></h4>
 <h4 id='method.into_iter' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html#tymethod.into_iter' class='fnname'>into_iter</a>(self) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html' title='core::iter::IntoIterator'>IntoIter</a></code></h4>
 </div><h3 class='impl'><code>impl&lt;Block&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../succinct/struct.IntVec.html' title='succinct::IntVec'>IntVec</a>&lt;Block&gt; <span class='where'>where Block: <a class='trait' href='../succinct/trait.BlockType.html' title='succinct::BlockType'>BlockType</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a></span></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, formatter: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>

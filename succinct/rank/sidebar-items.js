@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RankSupport","Add-on to `BitVector` to support fast rank queries."]]});
+initSidebarItems({"struct":[["JacobsonRank","Add-on to `BitStore` to support fast rank queries."]],"trait":[["RankSupport","Interface for types that support rank queries."]]});

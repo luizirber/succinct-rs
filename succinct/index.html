@@ -47,14 +47,24 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-37' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Succinct Data Structures for Rust</p>
+               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-45' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Succinct data structures for Rust.</p>
+
+<p>This library is a very early work in progress. So far we have:</p>
+
+<ul>
+<li><a href="struct.IntVec.html">integer vectors</a> with arbitrary-sized
+(1- to 64-bit) elements;</li>
+<li>constant-time <a href="struct.JacobsonRank.html">rank</a> queries; and</li>
+<li><code>lg lg n</code>-time <a href="struct.BinSearchSelect.html">select</a> queries
+based on binary search over ranks.</li>
+</ul>
 
 <h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>It’s <a href="https://crates.io/crates/succinct">on crates.io</a>, so you can add</p>
 
 <pre><code class="language-toml">[dependencies]
-succinct = &quot;*&quot;
+succinct = &quot;0.2.0&quot;
 </code></pre>
 
 <p>to your <code>Cargo.toml</code> and</p>
@@ -63,44 +73,71 @@ succinct = &quot;*&quot;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>succinct</span>;</pre>
 
 <p>to your crate root.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>pub use int_vec::{<a class='struct' href='../succinct/int_vec/struct.IntVec.html' title='succinct::int_vec::IntVec'>IntVec</a>};</code></td></tr><tr><td><code>pub use bit_vector::{<a class='trait' href='../succinct/bit_vector/trait.Rank.html' title='succinct::bit_vector::Rank'>Rank</a>, <a class='trait' href='../succinct/bit_vector/trait.Select.html' title='succinct::bit_vector::Select'>Select</a>};</code></td></tr><tr><td><code>pub use rank::<a class='struct' href='../succinct/rank/struct.RankSupport.html' title='succinct::rank::RankSupport'>RankSupport</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='mod' href='bit_vector/index.html'
-                                  title='succinct::bit_vector'>bit_vector</a></td>
+                           <td><a class='struct' href='struct.BinSearchSelect.html'
+                                  title='succinct::BinSearchSelect'>BinSearchSelect</a></td>
                            <td class='docblock short'>
-                                <p>Traits for working with bit vectors.</p>
+                                <p>Performs a select query by binary searching rank queries.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='mod' href='int_vec/index.html'
-                                  title='succinct::int_vec'>int_vec</a></td>
+                           <td><a class='struct' href='struct.IntVec.html'
+                                  title='succinct::IntVec'>IntVec</a></td>
                            <td class='docblock short'>
-                                <p>Bit-packed vectors of <em>k</em>-bit unsigned integers.</p>
+                                <p>A vector of <em>k</em>-bit unsigned integers, where <em>k</em> is determined at
+run time.</p>
                            </td>
                        </tr>
-                       <tr class=' module-item'>
-                           <td><a class='mod' href='rank/index.html'
-                                  title='succinct::rank'>rank</a></td>
-                           <td class='docblock short'>
-                                <p>Data structure to support fast rank queries.</p>
-                           </td>
-                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.IntVecBuilder.html'
                                   title='succinct::IntVecBuilder'>IntVecBuilder</a></td>
                            <td class='docblock short'>
                                 <p>Builder for configuring and constructing an <code>IntVec</code>.</p>
                            </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.JacobsonRank.html'
+                                  title='succinct::JacobsonRank'>JacobsonRank</a></td>
+                           <td class='docblock short'>
+                                <p>Add-on to <code>BitStore</code> to support fast rank queries.</p>
+                           </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.BitStore.html'
+                                  title='succinct::BitStore'>BitStore</a></td>
+                           <td class='docblock short'>
+                                <p>Interface for read-only bit vector operations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.BitStoreMut.html'
+                                  title='succinct::BitStoreMut'>BitStoreMut</a></td>
+                           <td class='docblock short'>
+                                <p>Interface for mutable bit vector operations.</p>
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.BlockType.html'
                                   title='succinct::BlockType'>BlockType</a></td>
                            <td class='docblock short'>
                                 <p>Types that can be used for <code>IntVec</code> storage.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.RankSupport.html'
+                                  title='succinct::RankSupport'>RankSupport</a></td>
+                           <td class='docblock short'>
+                                <p>Interface for types that support rank queries.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.SelectSupport.html'
+                                  title='succinct::SelectSupport'>SelectSupport</a></td>
+                           <td class='docblock short'>
+                                <p>Interface for types that support select queries.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

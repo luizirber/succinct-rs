@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Fill","Describes how to initialize the memory of an `IntVec`."]],"struct":[["IntVec","A vector of *k*-bit unsigned integers, where *k* is dynamic."],["IntVecBuilder","Builder for configuring and constructing an `IntVec`."],["Iter","An iterator over the elements of an `IntVec`."]]});
+initSidebarItems({"mod":[["builder","API for configuring and building `IntVec`s."]],"struct":[["IntVec","A vector of *k*-bit unsigned integers, where *k* is determined at run time."],["IntVecBuilder","Builder for configuring and constructing an `IntVec`."]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Z0","The type-level signed integer 0."]],"struct":[["NInt","Type-level signed integers with negative sign."],["PInt","Type-level signed integers with positive sign."]]});

@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-9' class='srclink' href='../src/succinct/src/block_type.rs.html#8-94' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-508' class='srclink' href='../src/succinct/src/storage.rs.html#8-93' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait BlockType: <a class='trait' href='../num_traits/int/trait.PrimInt.html' title='num_traits::int::PrimInt'>PrimInt</a> {
     fn <a href='#method.nbits' class='fnname'>nbits</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
     fn <a href='#method.element_mask' class='fnname'>element_mask</a>(element_bits: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self { ... }
@@ -61,14 +61,17 @@
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
         <h3 id='method.nbits' class='method stab '><code>fn <a href='#method.nbits' class='fnname'>nbits</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>The number of bits in a block.</p>
-</div><h3 id='method.element_mask' class='method stab '><code>fn <a href='#method.element_mask' class='fnname'>element_mask</a>(element_bits: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>The bit mask consisting of 0s followed by <code>element_bits</code> ones.</p>
+</div><h3 id='method.element_mask' class='method stab '><code>fn <a href='#method.element_mask' class='fnname'>element_mask</a>(element_bits: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>The bit mask consisting of <code>Self::nbits() - element_bits</code> zeroes
+followed by <code>element_bits</code> ones.</p>
 
 <h1 id='precondition' class='section-header'><a href='#precondition'>Precondition</a></h1>
 <p><code>element_bits &lt;= Self::nbits()</code></p>
 </div><h3 id='method.nth_mask' class='method stab '><code>fn <a href='#method.nth_mask' class='fnname'>nth_mask</a>(bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>The bit mask with the <code>bit_index</code>th bit set.</p>
 
+<p>Bits are index in big-endian style based at 0.</p>
+
 <h1 id='precondition-1' class='section-header'><a href='#precondition-1'>Precondition</a></h1>
-<p><code>bit_index</code> &lt; Self::nbits()`</p>
+<p><code>bit_index &lt; Self::nbits()</code></p>
 </div><h3 id='method.get_bits' class='method stab '><code>fn <a href='#method.get_bits' class='fnname'>get_bits</a>(self, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>Extracts <code>len</code> bits starting at bit offset <code>start</code>.</p>
 
 <h1 id='precondition-2' class='section-header'><a href='#precondition-2'>Precondition</a></h1>
