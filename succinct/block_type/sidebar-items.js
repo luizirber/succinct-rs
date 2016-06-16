@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"trait":[["BlockType","Types that can be used for `IntVec` storage."]]});
