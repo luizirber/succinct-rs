@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `SelectSupport` trait in crate `succinct`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, SelectSupport">
+    <meta name="description" content="API documentation for the Rust `impl_static_space_usage!` macro in crate `succinct`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, impl_static_space_usage!">
 
-    <title>succinct::SelectSupport - Rust</title>
+    <title>succinct::impl_static_space_usage! - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'SelectSupport', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'impl_static_space_usage!', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,26 +42,17 @@
         </form>
     </nav>
 
-    <section id='main' class="content trait">
-<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>succinct</a>::<wbr><a class='trait' href=''>SelectSupport</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content macro">
+<h1 class='fqn'><span class='in-band'><a href='index.html'>succinct</a>::<wbr><a class='macro' href=''>impl_static_space_usage!</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-764' class='srclink' href='../src/succinct/src/select/mod.rs.html#9-12' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait SelectSupport: <a class='trait' href='../succinct/trait.BitStore.html' title='succinct::BitStore'>BitStore</a> {
-    fn <a href='#tymethod.select' class='fnname'>select</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
-}</pre><div class='docblock'><p>Interface for types that support select queries.</p>
-</div>
-            <h2 id='required-methods'>Required Methods</h2>
-            <div class='methods'>
-        <h3 id='tymethod.select' class='method stab '><code>fn <a href='#tymethod.select' class='fnname'>select</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></h3><div class='docblock'><p>Returns the position of the <code>index</code>th 1 bit.</p>
-</div></div>
-        <h2 id='implementors'>Implementors</h2>
-        <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;'a, Rank: <a class='trait' href='../succinct/trait.RankSupport.html' title='succinct::RankSupport'>RankSupport</a> + 'a&gt; <a class='trait' href='../succinct/trait.SelectSupport.html' title='succinct::SelectSupport'>SelectSupport</a> for <a class='struct' href='../succinct/struct.BinSearchSelect.html' title='succinct::BinSearchSelect'>BinSearchSelect</a>&lt;'a, Rank&gt;</code></li>
-</ul><script type="text/javascript" async
-                         src="../implementors/succinct/trait.SelectSupport.js">
-                 </script></section>
+               </span><a id='src-1026' class='srclink' href='../src/succinct/src/space_usage.rs.html#73-81' title='goto source code'>[src]</a></span></h1>
+<pre class='rust macro'>
+<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>impl_static_space_usage</span> {
+    ( <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>t</span>:<span class='ident'>ty</span> ) <span class='op'>=&gt;</span> { ... };
+}</pre>
+</section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

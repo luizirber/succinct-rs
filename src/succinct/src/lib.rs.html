@@ -87,6 +87,9 @@
 <span id="43">43</span>
 <span id="44">44</span>
 <span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Succinct data structures for Rust.</span>
 <span class='doccomment'>//!</span>
@@ -104,7 +107,7 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! ```toml</span>
 <span class='doccomment'>//! [dependencies]</span>
-<span class='doccomment'>//! succinct = &quot;0.2.0&quot;</span>
+<span class='doccomment'>//! succinct = &quot;0.2.2&quot;</span>
 <span class='doccomment'>//! ```</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! to your `Cargo.toml` and</span>
@@ -133,6 +136,9 @@
 
 <span class='kw'>mod</span> <span class='ident'>select</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>select</span>::{<span class='ident'>SelectSupport</span>, <span class='ident'>BinSearchSelect</span>};
+
+<span class='kw'>mod</span> <span class='ident'>space_usage</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>space_usage</span>::<span class='ident'>SpaceUsage</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

@@ -195,8 +195,20 @@
 <span id="151">151</span>
 <span id="152">152</span>
 <span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>rank</span>::<span class='ident'>RankSupport</span>;
+<span class='kw'>use</span> <span class='ident'>space_usage</span>::<span class='ident'>SpaceUsage</span>;
 <span class='kw'>use</span> <span class='ident'>storage</span>::<span class='ident'>BitStore</span>;
 <span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>SelectSupport</span>;
 
@@ -249,6 +261,10 @@
     }
 }
 
+<span class='comment'>// If we had access to the representation of the rank structure, we</span>
+<span class='comment'>// could search level by level rather than at arbitrary bit addresses.</span>
+<span class='comment'>// But then this algorithm would be tied to that representation.</span>
+
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>Rank</span>: <span class='ident'>RankSupport</span> <span class='op'>+</span> <span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>
 <span class='ident'>SelectSupport</span> <span class='kw'>for</span> <span class='ident'>BinSearchSelect</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>Rank</span><span class='op'>&gt;</span> {
     <span class='kw'>fn</span> <span class='ident'>select</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>index</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span> {
@@ -283,6 +299,12 @@
 
         <span class='macro'>panic</span><span class='macro'>!</span>(<span class='string'>&quot;BinSearchSelect: broken invariant in rank support?&quot;</span>);
     }
+}
+
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>Rank</span>: <span class='ident'>RankSupport</span> <span class='op'>+</span> <span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>
+<span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='ident'>BinSearchSelect</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>Rank</span><span class='op'>&gt;</span> {
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='boolval'>true</span> }
 }
 
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>

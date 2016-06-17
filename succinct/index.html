@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-45' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-48' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Succinct data structures for Rust.</p>
 
 <p>This library is a very early work in progress. So far we have:</p>
@@ -64,7 +64,7 @@ based on binary search over ranks.</li>
 <p>It’s <a href="https://crates.io/crates/succinct">on crates.io</a>, so you can add</p>
 
 <pre><code class="language-toml">[dependencies]
-succinct = &quot;0.2.0&quot;
+succinct = &quot;0.2.2&quot;
 </code></pre>
 
 <p>to your <code>Cargo.toml</code> and</p>
@@ -73,7 +73,15 @@ succinct = &quot;0.2.0&quot;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>succinct</span>;</pre>
 
 <p>to your crate root.</p>
-</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_static_space_usage!.html'
+                                  title='succinct::impl_static_space_usage!'>impl_static_space_usage!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.BinSearchSelect.html'
@@ -138,6 +146,13 @@ run time.</p>
                                   title='succinct::SelectSupport'>SelectSupport</a></td>
                            <td class='docblock short'>
                                 <p>Interface for types that support select queries.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.SpaceUsage.html'
+                                  title='succinct::SpaceUsage'>SpaceUsage</a></td>
+                           <td class='docblock short'>
+                                <p>Types that know how to compute their space usage.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

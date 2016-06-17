@@ -740,6 +740,16 @@
 <span id="696">696</span>
 <span id="697">697</span>
 <span id="698">698</span>
+<span id="699">699</span>
+<span id="700">700</span>
+<span id="701">701</span>
+<span id="702">702</span>
+<span id="703">703</span>
+<span id="704">704</span>
+<span id="705">705</span>
+<span id="706">706</span>
+<span id="707">707</span>
+<span id="708">708</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Bit-packed vectors of *k*-bit unsigned integers.</span>
 
@@ -748,6 +758,7 @@
 <span class='kw'>use</span> <span class='ident'>num</span>::{<span class='ident'>PrimInt</span>, <span class='ident'>ToPrimitive</span>};
 
 <span class='kw'>use</span> <span class='ident'>storage</span>::{<span class='ident'>BitStore</span>, <span class='ident'>BitStoreMut</span>, <span class='ident'>BlockType</span>};
+<span class='kw'>use</span> <span class='ident'>space_usage</span>::<span class='ident'>SpaceUsage</span>;
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>builder</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>builder</span>::<span class='ident'>IntVecBuilder</span>;
@@ -1261,6 +1272,15 @@
         }
 
         <span class='macro'>write</span><span class='macro'>!</span>(<span class='ident'>formatter</span>, <span class='string'>&quot;}} }}&quot;</span>)
+    }
+}
+
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>A</span>: <span class='ident'>BlockType</span><span class='op'>&gt;</span> <span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='ident'>IntVec</span><span class='op'>&lt;</span><span class='ident'>A</span><span class='op'>&gt;</span> {
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='boolval'>false</span> }
+
+    <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
+        <span class='self'>self</span>.<span class='ident'>blocks</span>.<span class='ident'>capacity</span>() <span class='op'>*</span> <span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>A</span><span class='op'>&gt;</span>()
     }
 }
 
