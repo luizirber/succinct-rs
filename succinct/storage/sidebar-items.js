@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["BitStore","Interface for read-only bit vector operations."],["BitStoreMut","Interface for mutable bit vector operations."],["BlockType","Types that can be used for `IntVec` storage."]]});
+initSidebarItems({"struct":[["Address","Represents the address of a bit, broken into a block component and a bit offset component."]],"trait":[["BlockType","Types that can be used for `IntVector` and `BitVector` storage."]]});

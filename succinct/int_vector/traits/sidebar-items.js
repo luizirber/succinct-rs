@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["IntVec","Types that can be accessed as immutable arrays of integers of limited width."],["IntVecMut","Types that can be accessed as mutable arrays of integers of limited width."]]});

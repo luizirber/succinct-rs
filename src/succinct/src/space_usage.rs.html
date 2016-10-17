@@ -248,33 +248,35 @@
 <span id="204">204</span>
 <span id="205">205</span>
 <span id="206">206</span>
-<span id="207">207</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A trait for computing space usage.</span>
 
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
 
-<span class='doccomment'>/// Types that know how to compute their space usage.</span>
+<span class='doccomment'>/// Computes the space usage of an object.</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>/// The space usage is split into two portions, the static portion</span>
-<span class='doccomment'>/// (returned by `stack_bytes` and the dynamic portion (returned by</span>
-<span class='doccomment'>/// `heap_bytes`). The static portion is the statically-known size</span>
-<span class='doccomment'>/// for every object of its type, allocated on the stack; the dynamic</span>
-<span class='doccomment'>/// portion is the additional heap allocation that may depend on run-time</span>
-<span class='doccomment'>/// factors.</span>
+<span class='doccomment'>/// We calculate the space usage as split into two portions, the heap</span>
+<span class='doccomment'>/// portion (returned by `heap_bytes` and the stack portion (returned by</span>
+<span class='doccomment'>/// `stack_bytes`). The stack portion is the statically-known size for</span>
+<span class='doccomment'>/// every object of its type as allocated on the stack; the dynamic</span>
+<span class='doccomment'>/// portion is the additional heap allocation that may depend on</span>
+<span class='doccomment'>/// run-time factors.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// Examples:</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>///  - The size of primitive types like `u32` and `usize` is statically</span>
-<span class='doccomment'>///  known.</span>
+<span class='doccomment'>///  - Primitive types like `u32` and `usize` are stack-only.</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>///  - The size of a tuple type is statically known when the sizes of</span>
-<span class='doccomment'>///  all its components are.</span>
+<span class='doccomment'>///  - A tuple or struct type is stack-only when all its components are.</span>
+<span class='doccomment'>///    Its heap portion is the sum of their heap portions, but its stack</span>
+<span class='doccomment'>///    portion may exceed the sum of their stack portions because of</span>
+<span class='doccomment'>///    alignment and padding.</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>///  - The size of a vector includes a static portion, the vector struct</span>
-<span class='doccomment'>///  on the stack, and a dynamic portion, the heap array holding its</span>
-<span class='doccomment'>///  elements, including both the static and dynamic sizes of the</span>
-<span class='doccomment'>///  elements.</span>
+<span class='doccomment'>///  - The size of a vector includes a stack portion, the vector struct</span>
+<span class='doccomment'>///    itself, and a heap portion, the array holding its elements. The</span>
+<span class='doccomment'>///    heap portion of a vector includes the stack portions of its</span>
+<span class='doccomment'>///    elements. (Should they be called something else for this reason? I</span>
+<span class='doccomment'>///    considered static/dynamic, but `Box` shows why that doesn’t express</span>
+<span class='doccomment'>///    exactly the right property.)</span>
 
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>SpaceUsage</span>: <span class='ident'>Sized</span> {
     <span class='doccomment'>/// Computes the size of the receiver in bytes.</span>
@@ -286,7 +288,7 @@
     <span class='doccomment'>/// `Self::stack_bytes() + self.heap_bytes()`.</span>
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>total_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
-        <span class='ident'>Self</span>::<span class='ident'>stack_bytes</span>() <span class='op'>+</span> <span class='self'>self</span>.<span class='ident'>heap_bytes</span>()
+        <span class='self'>Self</span>::<span class='ident'>stack_bytes</span>() <span class='op'>+</span> <span class='self'>self</span>.<span class='ident'>heap_bytes</span>()
     }
 
     <span class='doccomment'>/// Is the size of this type known statically?</span>
@@ -295,56 +297,52 @@
     <span class='doccomment'>/// return 0.</span>
     <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span>;
 
-    <span class='doccomment'>/// Calculates the static portion of the size of this type.</span>
+    <span class='doccomment'>/// Calculates the stack portion of the size of this type.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This is the minimum size that all objects of this type occupy,</span>
-    <span class='doccomment'>/// not counting storage that objects of the type might allocate</span>
-    <span class='doccomment'>/// dynamically.</span>
+    <span class='doccomment'>/// This is the size of the immediate storage that all objects of</span>
+    <span class='doccomment'>/// this type occupy; it excludes storage that objects of the</span>
+    <span class='doccomment'>/// type might allocate dynamically.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default implementation returns `std::mem::size_of::&lt;Self&gt;()`.</span>
+
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>stack_bytes</span>() <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
-        <span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;</span>()
+        <span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;</span>()
     }
 
-    <span class='doccomment'>/// Calculates the dynamic portion of the size of an object.</span>
+    <span class='doccomment'>/// Calculates the heap portion of the size of an object.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This is the memory used by (or owned by) the object, not</span>
-    <span class='doccomment'>/// including any portion of its size that is known statically and</span>
+    <span class='doccomment'>/// This is the memory used by (or, rather, owned by) the object, not</span>
+    <span class='doccomment'>/// including any portion of its size that is</span>
     <span class='doccomment'>/// included in `stack_bytes`. This is typically for containers</span>
     <span class='doccomment'>/// that heap allocate varying amounts of memory.</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// The default implementation returns `0`.</span>
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
-    <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
-        <span class='number'>0</span>
-    }
+    <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span>;
 }
 
-<span class='attribute'>#[<span class='ident'>macro_export</span>]</span>
-<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>impl_static_space_usage</span> {
-    ( <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>t</span>:<span class='ident'>ty</span> ) <span class='op'>=&gt;</span>
-    {
-        <span class='kw'>impl</span> <span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>t</span> {
-            <span class='attribute'>#[<span class='ident'>inline</span>]</span>
-            <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='boolval'>true</span> }
-        }
-    }
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(());
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>u8</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>u16</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>u32</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>u64</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>usize</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>i8</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>i16</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>i32</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>i64</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>isize</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>f32</span>);
+<span class='macro'>impl_stack_only_space_usage</span><span class='macro'>!</span>(<span class='ident'>f64</span>);
+
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>T</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='bool-val'>true</span> }
+    <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> { <span class='number'>0</span> }
 }
 
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(());
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>u8</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>u16</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>u32</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>u64</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>usize</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>i8</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>i16</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>i32</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>i64</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>isize</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>f32</span>);
-<span class='macro'>impl_static_space_usage</span><span class='macro'>!</span>(<span class='ident'>f64</span>);
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> [<span class='ident'>T</span>] {
+    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='bool-val'>true</span> }
+    <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> { <span class='number'>0</span> }
+}
 
 <span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>impl_tuple_space_usage</span> {
     ( $( <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tv</span>:<span class='ident'>ident</span> ),<span class='op'>+</span> ) <span class='op'>=&gt;</span>
@@ -379,7 +377,7 @@
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>A</span>: <span class='ident'>SpaceUsage</span> <span class='op'>+</span> ::<span class='ident'>std</span>::<span class='ident'>fmt</span>::<span class='ident'>Debug</span><span class='op'>&gt;</span> <span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>A</span><span class='op'>&gt;</span> {
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
-    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='boolval'>false</span> }
+    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='bool-val'>false</span> }
 
     <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>capacity</span>() <span class='op'>*</span> <span class='ident'>A</span>::<span class='ident'>stack_bytes</span>();
@@ -396,10 +394,10 @@
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>A</span>: <span class='ident'>SpaceUsage</span><span class='op'>&gt;</span> <span class='ident'>SpaceUsage</span> <span class='kw'>for</span> <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>A</span><span class='op'>&gt;</span> {
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
-    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='boolval'>false</span> }
+    <span class='kw'>fn</span> <span class='ident'>is_stack_only</span>() <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='bool-val'>false</span> }
 
     <span class='kw'>fn</span> <span class='ident'>stack_bytes</span>() <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
-        <span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;</span>()
+        <span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;</span>()
     }
 
     <span class='kw'>fn</span> <span class='ident'>heap_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
@@ -410,7 +408,7 @@
 
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
 <span class='kw'>mod</span> <span class='ident'>test</span> {
-    <span class='kw'>use</span> <span class='ident'>super</span>::<span class='op'>*</span>;
+    <span class='kw'>use</span> <span class='kw'>super</span>::<span class='op'>*</span>;
     <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>size_of</span>;
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
@@ -481,6 +479,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

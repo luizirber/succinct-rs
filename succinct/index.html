@@ -47,14 +47,17 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-48' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/succinct/src/lib.rs.html#1-65' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Succinct data structures for Rust.</p>
 
-<p>This library is a very early work in progress. So far we have:</p>
+<p>This library is an early work in progress. So far we have:</p>
 
 <ul>
-<li><a href="struct.IntVec.html">integer vectors</a> with arbitrary-sized
+<li><a href="int_vector/struct.IntVec.html">integer vectors</a> with arbitrary-sized
 (1- to 64-bit) elements;</li>
+<li><a href="bit_vector/struct.BitVec.html">bit vectors</a> and <a href="stream/struct.BitBuffer.html">bit
+buffers</a>,</li>
+<li>a variety of <a href="coding/index.html">universal codes</a>,</li>
 <li>constant-time <a href="struct.JacobsonRank.html">rank</a> queries; and</li>
 <li><em>O</em>(lg lg <em>n</em>)-time <a href="struct.BinSearchSelect.html">select</a> queries
 based on binary search over ranks.</li>
@@ -64,7 +67,7 @@ based on binary search over ranks.</li>
 <p>It’s <a href="https://crates.io/crates/succinct">on crates.io</a>, so you can add</p>
 
 <pre><code class="language-toml">[dependencies]
-succinct = &quot;0.2.2&quot;
+succinct = &quot;0.4.2&quot;
 </code></pre>
 
 <p>to your <code>Cargo.toml</code> and</p>
@@ -73,13 +76,116 @@ succinct = &quot;0.2.2&quot;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>succinct</span>;</pre>
 
 <p>to your crate root.</p>
-</div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='macro' href='macro.impl_static_space_usage!.html'
-                                  title='succinct::impl_static_space_usage!'>impl_static_space_usage!</a></td>
+                           <td><a class='mod' href='bit_vec/index.html'
+                                  title='succinct::bit_vec'>bit_vec</a></td>
                            <td class='docblock short'>
-                                
+                                <p>Bit vector interfaces and implementations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='broadword/index.html'
+                                  title='succinct::broadword'>broadword</a></td>
+                           <td class='docblock short'>
+                                <p>Broadword operations treating <code>u64</code> as a parallel vector.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='coding/index.html'
+                                  title='succinct::coding'>coding</a></td>
+                           <td class='docblock short'>
+                                <p>Codes for data compression.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='int_vec/index.html'
+                                  title='succinct::int_vec'>int_vec</a></td>
+                           <td class='docblock short'>
+                                <p>Vectors of <em>k</em>-bit unsigned integers.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='rank/index.html'
+                                  title='succinct::rank'>rank</a></td>
+                           <td class='docblock short'>
+                                <p>Support for fast rank queries.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='select/index.html'
+                                  title='succinct::select'>select</a></td>
+                           <td class='docblock short'>
+                                <p>Support for fast select queries.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='storage/index.html'
+                                  title='succinct::storage'>storage</a></td>
+                           <td class='docblock short'>
+                                <p>Traits describing how bits and arrays of bits are stored.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='stream/index.html'
+                                  title='succinct::stream'>stream</a></td>
+                           <td class='docblock short'>
+                                <p>Bit-oriented streams for coding.</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_bit_rank_support_adapter!.html'
+                                  title='succinct::impl_bit_rank_support_adapter!'>impl_bit_rank_support_adapter!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>BitRankSupport</code> for a type that contains a <code>BitRankSupport</code>
+field.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_bit_vec_adapter!.html'
+                                  title='succinct::impl_bit_vec_adapter!'>impl_bit_vec_adapter!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>BitVec</code> for a type that contains a <code>BitVec</code> field.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_rank_support_adapter!.html'
+                                  title='succinct::impl_rank_support_adapter!'>impl_rank_support_adapter!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>RankSupport</code> for a type that contains a <code>RankSupport</code> field.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_select0_support_adapter!.html'
+                                  title='succinct::impl_select0_support_adapter!'>impl_select0_support_adapter!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>Select0Support</code> for a type that contains a <code>Select0Support</code>
+field.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_select1_support_adapter!.html'
+                                  title='succinct::impl_select1_support_adapter!'>impl_select1_support_adapter!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>Select1Support</code> for a type that contains a <code>Select1Support</code>
+field.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_select_support_adapter!.html'
+                                  title='succinct::impl_select_support_adapter!'>impl_select_support_adapter!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>SelectSupport</code> for a type that contains a <code>SelectSupport</code>
+field.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.impl_stack_only_space_usage!.html'
+                                  title='succinct::impl_stack_only_space_usage!'>impl_stack_only_space_usage!</a></td>
+                           <td class='docblock short'>
+                                <p>Implements <code>SpaceUsage</code> for a stack-only (<code>Copy</code>) type.</p>
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -91,68 +197,88 @@ succinct = &quot;0.2.2&quot;
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVec.html'
-                                  title='succinct::IntVec'>IntVec</a></td>
+                           <td><a class='struct' href='struct.BitVector.html'
+                                  title='succinct::BitVector'>BitVector</a></td>
                            <td class='docblock short'>
-                                <p>A vector of <em>k</em>-bit unsigned integers, where <em>k</em> is determined at
-run time.</p>
+                                <p>Uncompressed vector of bits.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVecBuilder.html'
-                                  title='succinct::IntVecBuilder'>IntVecBuilder</a></td>
+                           <td><a class='struct' href='struct.IntVector.html'
+                                  title='succinct::IntVector'>IntVector</a></td>
                            <td class='docblock short'>
-                                <p>Builder for configuring and constructing an <code>IntVec</code>.</p>
+                                <p>Uncompressed vector of <em>k</em>-bit unsigned integers.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.JacobsonRank.html'
                                   title='succinct::JacobsonRank'>JacobsonRank</a></td>
                            <td class='docblock short'>
-                                <p>Add-on to <code>BitStore</code> to support fast rank queries.</p>
+                                <p>Jacobson’s rank structure for fast rank queries over a <code>BitVec</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Rank9.html'
+                                  title='succinct::Rank9'>Rank9</a></td>
+                           <td class='docblock short'>
+                                <p>Vigna’s rank structure for fast rank queries over a <code>BitVec</code>.</p>
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.BitStore.html'
-                                  title='succinct::BitStore'>BitStore</a></td>
+                           <td><a class='trait' href='trait.BitRankSupport.html'
+                                  title='succinct::BitRankSupport'>BitRankSupport</a></td>
                            <td class='docblock short'>
-                                <p>Interface for read-only bit vector operations.</p>
+                                <p>Supports fast rank queries over <code>bool</code>s.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.BitStoreMut.html'
-                                  title='succinct::BitStoreMut'>BitStoreMut</a></td>
+                           <td><a class='trait' href='trait.BitVec.html'
+                                  title='succinct::BitVec'>BitVec</a></td>
                            <td class='docblock short'>
-                                <p>Interface for mutable bit vector operations.</p>
+                                <p>Read-only bit vector operations.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.BlockType.html'
-                                  title='succinct::BlockType'>BlockType</a></td>
+                           <td><a class='trait' href='trait.BitVecMut.html'
+                                  title='succinct::BitVecMut'>BitVecMut</a></td>
                            <td class='docblock short'>
-                                <p>Types that can be used for <code>IntVec</code> storage.</p>
+                                <p>Mutable bit vector operations that don’t affect the length.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.RankSupport.html'
-                                  title='succinct::RankSupport'>RankSupport</a></td>
+                           <td><a class='trait' href='trait.BitVecPush.html'
+                                  title='succinct::BitVecPush'>BitVecPush</a></td>
                            <td class='docblock short'>
-                                <p>Interface for types that support rank queries.</p>
+                                <p>Bit vector operations that change the length.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.SelectSupport.html'
-                                  title='succinct::SelectSupport'>SelectSupport</a></td>
+                           <td><a class='trait' href='trait.IntVec.html'
+                                  title='succinct::IntVec'>IntVec</a></td>
                            <td class='docblock short'>
-                                <p>Interface for types that support select queries.</p>
+                                <p>An immutable array of integers of limited width.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.IntVecMut.html'
+                                  title='succinct::IntVecMut'>IntVecMut</a></td>
+                           <td class='docblock short'>
+                                <p>A mutable array of integers of limited width.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Select1Support.html'
+                                  title='succinct::Select1Support'>Select1Support</a></td>
+                           <td class='docblock short'>
+                                <p>Supports selecting for 1 bits.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.SpaceUsage.html'
                                   title='succinct::SpaceUsage'>SpaceUsage</a></td>
                            <td class='docblock short'>
-                                <p>Types that know how to compute their space usage.</p>
+                                <p>Computes the space usage of an object.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -177,6 +303,8 @@ run time.</p>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

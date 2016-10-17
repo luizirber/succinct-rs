@@ -1,10 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0;URL=../../succinct/trait.BlockType.html">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BlockType` trait in crate `succinct`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BlockType">
+
+    <title>succinct::storage::BlockType - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
 </head>
-<body>
-    <p>Redirecting to <a href="../../succinct/trait.BlockType.html">../../succinct/trait.BlockType.html</a>...</p>
-    <script>location.replace("../../succinct/trait.BlockType.html" + location.search + location.hash);</script>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>storage</a></p><script>window.sidebarCurrent = {name: 'BlockType', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>storage</a>::<wbr><a class='trait' href=''>BlockType</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-740' class='srclink' href='../../src/succinct/src/storage.rs.html#23-238' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait BlockType: <a class='trait' href='../../num_traits/int/trait.PrimInt.html' title='num_traits::int::PrimInt'>PrimInt</a> + <a class='trait' href='../../succinct/bit_vec/trait.BitVec.html' title='succinct::bit_vec::BitVec'>BitVec</a> + <a class='trait' href='../../succinct/bit_vec/trait.BitVecMut.html' title='succinct::bit_vec::BitVecMut'>BitVecMut</a> + <a class='trait' href='../../succinct/rank/trait.BitRankSupport.html' title='succinct::rank::BitRankSupport'>BitRankSupport</a> + <a class='trait' href='../../succinct/rank/trait.RankSupport.html' title='succinct::rank::RankSupport'>RankSupport</a>&lt;Over=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt; + <a class='trait' href='../../succinct/trait.SpaceUsage.html' title='succinct::SpaceUsage'>SpaceUsage</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> {
+    fn <a href='#tymethod.read_block' class='fnname'>read_block</a>&lt;R,&nbsp;T&gt;(source: &amp;mut R) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;Self&gt; <span class='where'>where R: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a>, T: <a class='trait' href='../../byteorder/trait.ByteOrder.html' title='byteorder::ByteOrder'>ByteOrder</a></span>;
+    fn <a href='#tymethod.write_block' class='fnname'>write_block</a>&lt;W,&nbsp;T&gt;(&amp;self, sink: &amp;mut W) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt; <span class='where'>where W: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Write.html' title='std::io::Write'>Write</a>, T: <a class='trait' href='../../byteorder/trait.ByteOrder.html' title='byteorder::ByteOrder'>ByteOrder</a></span>;
+
+    fn <a href='#method.nbits' class='fnname'>nbits</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.div_nbits' class='fnname'>div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.checked_div_nbits' class='fnname'>checked_div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; { ... }
+    fn <a href='#method.ceil_div_nbits' class='fnname'>ceil_div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.checked_ceil_div_nbits' class='fnname'>checked_ceil_div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; { ... }
+    fn <a href='#method.mod_nbits' class='fnname'>mod_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.mul_nbits' class='fnname'>mul_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a> { ... }
+    fn <a href='#method.last_block_bits' class='fnname'>last_block_bits</a>(len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.lg_nbits' class='fnname'>lg_nbits</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.lg_nbits_mask' class='fnname'>lg_nbits_mask</a>&lt;Result:&nbsp;<a class='trait' href='../../succinct/storage/trait.BlockType.html' title='succinct::storage::BlockType'>BlockType</a>&gt;() -&gt; Result { ... }
+    fn <a href='#method.low_mask' class='fnname'>low_mask</a>(element_bits: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self { ... }
+    fn <a href='#method.nth_mask' class='fnname'>nth_mask</a>(bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self { ... }
+    fn <a href='#method.get_bit' class='fnname'>get_bit</a>(self, bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.with_bit' class='fnname'>with_bit</a>(self, bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, bit_value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; Self { ... }
+    fn <a href='#method.get_bits' class='fnname'>get_bits</a>(self, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self { ... }
+    fn <a href='#method.with_bits' class='fnname'>with_bits</a>(self, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, value: Self) -&gt; Self { ... }
+    fn <a href='#method.ceil_lg' class='fnname'>ceil_lg</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.floor_lg' class='fnname'>floor_lg</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.ceil_div' class='fnname'>ceil_div</a>(self, divisor: Self) -&gt; Self { ... }
+}</pre><div class='docblock'><p>Types that can be used for <code>IntVector</code> and <code>BitVector</code> storage.</p>
+
+<p>This trait is kind of a grab bag of methods right now. It includes:</p>
+
+<ul>
+<li>methods for computing sizes and offsets relative to the block size,</li>
+<li>methods for getting and setting individual and groups of bits,</li>
+<li>a method for computing rank,</li>
+<li>three arithmetic methods that probably belong elsewhere, and</li>
+<li>block-based, endian-specified I/O.</li>
+</ul>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.read_block' class='method stab '><code>fn <a href='#tymethod.read_block' class='fnname'>read_block</a>&lt;R,&nbsp;T&gt;(source: &amp;mut R) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;Self&gt; <span class='where'>where R: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a>, T: <a class='trait' href='../../byteorder/trait.ByteOrder.html' title='byteorder::ByteOrder'>ByteOrder</a></span></code></h3><div class='docblock'><p>Reads a block with the specified endianness.</p>
+</div><h3 id='tymethod.write_block' class='method stab '><code>fn <a href='#tymethod.write_block' class='fnname'>write_block</a>&lt;W,&nbsp;T&gt;(&amp;self, sink: &amp;mut W) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt; <span class='where'>where W: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Write.html' title='std::io::Write'>Write</a>, T: <a class='trait' href='../../byteorder/trait.ByteOrder.html' title='byteorder::ByteOrder'>ByteOrder</a></span></code></h3><div class='docblock'><p>Writes a block with the specified endianness.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.nbits' class='method stab '><code>fn <a href='#method.nbits' class='fnname'>nbits</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>The number of bits in a block.</p>
+</div><h3 id='method.div_nbits' class='method stab '><code>fn <a href='#method.div_nbits' class='fnname'>div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns <code>index / Self::nbits()</code>, computed by shifting.</p>
+
+<p>This is intended for converting a bit address into a block
+address, which is why it takes <code>u64</code> and returns <code>usize</code>.
+There is no check that the result actually fits in a <code>usize</code>,
+so this should only be used when <code>index</code> is already known to
+be small enough.</p>
+</div><h3 id='method.checked_div_nbits' class='method stab '><code>fn <a href='#method.checked_div_nbits' class='fnname'>checked_div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h3><div class='docblock'><p>Returns <code>index / Self::nbits()</code>, computed by shifting.</p>
+
+<p>This is intended for converting a bit address into a block
+address, which is why it takes <code>u64</code> and returns <code>usize</code>.</p>
+</div><h3 id='method.ceil_div_nbits' class='method stab '><code>fn <a href='#method.ceil_div_nbits' class='fnname'>ceil_div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns <code>index / Self::nbits()</code> rounded up, computed by shifting.</p>
+
+<p>This is intended for converting a bit size into a block
+size, which is why it takes <code>u64</code> and returns <code>usize</code>.</p>
+</div><h3 id='method.checked_ceil_div_nbits' class='method stab '><code>fn <a href='#method.checked_ceil_div_nbits' class='fnname'>checked_ceil_div_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h3><div class='docblock'><p>Returns <code>index / Self::nbits()</code> rounded up, computed by shifting.</p>
+
+<p>This is intended for converting a bit size into a block
+size, which is why it takes <code>u64</code> and returns <code>usize</code>.
+There is no check that the result actually fits in a <code>usize</code>,
+so this should only be used when <code>index</code> is already known to
+be small enough.</p>
+</div><h3 id='method.mod_nbits' class='method stab '><code>fn <a href='#method.mod_nbits' class='fnname'>mod_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns <code>index % Self::nbits()</code>, computed by masking.</p>
+
+<p>This is intended for converting a bit address into a bit offset
+within a block, which is why it takes <code>u64</code> and returns <code>usize</code>.</p>
+</div><h3 id='method.mul_nbits' class='method stab '><code>fn <a href='#method.mul_nbits' class='fnname'>mul_nbits</a>(index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h3><div class='docblock'><p>Returns <code>index * Self::nbits()</code>, computed by shifting.</p>
+
+<p>This is intended for converting a block address into a bit address,
+which is why it takes a <code>usize</code> and returns a <code>u64</code>.</p>
+</div><h3 id='method.last_block_bits' class='method stab '><code>fn <a href='#method.last_block_bits' class='fnname'>last_block_bits</a>(len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Computes how many bits are in the last block of an array of
+<code>len</code> bits.</p>
+
+<p>This is like <code>Self::mod_nbits</code>, but it returns <code>Self::nbits()</code> in
+lieu of 0. Note that this means that if you have 0 bits then the
+last block is full.</p>
+</div><h3 id='method.lg_nbits' class='method stab '><code>fn <a href='#method.lg_nbits' class='fnname'>lg_nbits</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Log-base-2 of the number of bits in a block.</p>
+</div><h3 id='method.lg_nbits_mask' class='method stab '><code>fn <a href='#method.lg_nbits_mask' class='fnname'>lg_nbits_mask</a>&lt;Result:&nbsp;<a class='trait' href='../../succinct/storage/trait.BlockType.html' title='succinct::storage::BlockType'>BlockType</a>&gt;() -&gt; Result</code></h3><div class='docblock'><p>Mask with the lowest-order <code>lg_nbits()</code> set.</p>
+</div><h3 id='method.low_mask' class='method stab '><code>fn <a href='#method.low_mask' class='fnname'>low_mask</a>(element_bits: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>The bit mask consisting of <code>Self::nbits() - element_bits</code> zeroes
+followed by <code>element_bits</code> ones.</p>
+
+<h1 id='precondition' class='section-header'><a href='#precondition'>Precondition</a></h1>
+<p><code>element_bits &lt;= Self::nbits()</code></p>
+</div><h3 id='method.nth_mask' class='method stab '><code>fn <a href='#method.nth_mask' class='fnname'>nth_mask</a>(bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>The bit mask with the <code>bit_index</code>th bit set.</p>
+
+<p>BitVec are index in little-endian style based at 0.</p>
+
+<h1 id='precondition-1' class='section-header'><a href='#precondition-1'>Precondition</a></h1>
+<p><code>bit_index &lt; Self::nbits()</code></p>
+</div><h3 id='method.get_bit' class='method stab '><code>fn <a href='#method.get_bit' class='fnname'>get_bit</a>(self, bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Extracts the value of the <code>bit_index</code>th bit.</p>
+
+<h1 id='panics' class='section-header'><a href='#panics'>Panics</a></h1>
+<p>Panics if <code>bit_index</code> is out of bounds.</p>
+</div><h3 id='method.with_bit' class='method stab '><code>fn <a href='#method.with_bit' class='fnname'>with_bit</a>(self, bit_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, bit_value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; Self</code></h3><div class='docblock'><p>Functionally updates the value of the <code>bit_index</code>th bit to <code>bit_value</code>.</p>
+
+<h1 id='panics-1' class='section-header'><a href='#panics-1'>Panics</a></h1>
+<p>Panics if <code>bit_index</code> is out of bounds.</p>
+</div><h3 id='method.get_bits' class='method stab '><code>fn <a href='#method.get_bits' class='fnname'>get_bits</a>(self, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; Self</code></h3><div class='docblock'><p>Extracts <code>len</code> bits starting at bit offset <code>start</code>.</p>
+
+<h1 id='panics-2' class='section-header'><a href='#panics-2'>Panics</a></h1>
+<p>Panics of the bit span is out of bounds.</p>
+</div><h3 id='method.with_bits' class='method stab '><code>fn <a href='#method.with_bits' class='fnname'>with_bits</a>(self, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, value: Self) -&gt; Self</code></h3><div class='docblock'><p>Functionally updates <code>len</code> bits to <code>value</code> starting at offset <code>start</code>.</p>
+
+<h1 id='panics-3' class='section-header'><a href='#panics-3'>Panics</a></h1>
+<p>Panics of the bit span is out of bounds.</p>
+</div><h3 id='method.ceil_lg' class='method stab '><code>fn <a href='#method.ceil_lg' class='fnname'>ceil_lg</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the smallest number <code>n</code> such that <code>2.pow(n) &gt;= self</code>.</p>
+</div><h3 id='method.floor_lg' class='method stab '><code>fn <a href='#method.floor_lg' class='fnname'>floor_lg</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the largest number <code>n</code> such that <code>2.pow(n) &lt;= self</code>.</p>
+</div><h3 id='method.ceil_div' class='method stab '><code>fn <a href='#method.ceil_div' class='fnname'>ceil_div</a>(self, divisor: Self) -&gt; Self</code></h3><div class='docblock'><p>Returns the smallest number <code>n</code> such that <code>n * divisor &gt;= self</code>.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl BlockType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></li>
+<li><code>impl BlockType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a></code></li>
+<li><code>impl BlockType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></li>
+<li><code>impl BlockType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></li>
+<li><code>impl BlockType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/succinct/storage/trait.BlockType.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "succinct";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

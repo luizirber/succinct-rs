@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Rank9","Vigna’s rank structure for fast rank queries over a `BitVec`."]]});

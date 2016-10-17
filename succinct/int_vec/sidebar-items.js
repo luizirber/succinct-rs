@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["builder","API for configuring and building `IntVec`s."]],"struct":[["IntVec","A vector of *k*-bit unsigned integers, where *k* is determined at run time."],["IntVecBuilder","Builder for configuring and constructing an `IntVec`."]]});
+initSidebarItems({"struct":[["IntVector","Uncompressed vector of *k*-bit unsigned integers."],["Iter","An iterator over the elements of an `IntVector`."]],"trait":[["IntVec","An immutable array of integers of limited width."],["IntVecMut","A mutable array of integers of limited width."]]});

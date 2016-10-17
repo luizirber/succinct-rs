@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Unary","Encodes _n_ as _n_ zeroes followed by a one."]]});

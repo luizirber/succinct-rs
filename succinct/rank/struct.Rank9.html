@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Rank9` struct in crate `succinct`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Rank9">
+
+    <title>succinct::rank::Rank9 - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>rank</a></p><script>window.sidebarCurrent = {name: 'Rank9', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>rank</a>::<wbr><a class='struct' href=''>Rank9</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2750' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#10-13' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Rank9&lt;Store&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>Vigna’s rank structure for fast rank queries over a <code>BitVec</code>.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='../../succinct/bit_vec/trait.BitVec.html' title='succinct::bit_vec::BitVec'>BitVec</a>&lt;Block=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;&gt; <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2801' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#50-106' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(bits: Store) -&gt; Self</code></h4>
+<div class='docblock'><p>Creates a new rank9 structure.</p>
+</div><h4 id='method.inner' class='method'><code>fn <a href='#method.inner' class='fnname'>inner</a>(&amp;self) -&gt; &amp;Store</code></h4>
+<div class='docblock'><p>Borrows a reference to the underlying bit store.</p>
+</div><h4 id='method.into_inner' class='method'><code>fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; Store</code></h4>
+<div class='docblock'><p>Returns the underlying bit store.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2736' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#9' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2744' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#9' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='../../succinct/bit_vec/trait.BitVec.html' title='succinct::bit_vec::BitVec'>BitVec</a>&lt;Block=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;&gt; <a class='trait' href='../../succinct/rank/trait.BitRankSupport.html' title='succinct::rank::BitRankSupport'>BitRankSupport</a> for <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2822' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#108-126' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.rank1' class='method'><code>fn <a href='../../succinct/rank/trait.BitRankSupport.html#method.rank1' class='fnname'>rank1</a>(&amp;self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>Returns the rank of 1 at the given position. <a href="../../succinct/rank/trait.BitRankSupport.html#method.rank1">Read more</a></p>
+</div><h4 id='method.rank0' class='method'><code>fn <a href='../../succinct/rank/trait.BitRankSupport.html#method.rank0' class='fnname'>rank0</a>(&amp;self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>Returns the rank of 0 at the given position. <a href="../../succinct/rank/trait.BitRankSupport.html#method.rank0">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='../../succinct/bit_vec/trait.BitVec.html' title='succinct::bit_vec::BitVec'>BitVec</a>&lt;Block=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;&gt; <a class='trait' href='../../succinct/rank/trait.RankSupport.html' title='succinct::rank::RankSupport'>RankSupport</a> for <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2835' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#128-138' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Over' class='type'><code>type <a href='../../succinct/rank/trait.RankSupport.html#associatedtype.Over' class='type'>Over</a> = <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>The type of value to rank.</p>
+</div><h4 id='method.rank' class='method'><code>fn <a href='../../succinct/rank/trait.RankSupport.html#tymethod.rank' class='fnname'>rank</a>(&amp;self, position: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>Returns the rank of the given value at a given position. <a href="../../succinct/rank/trait.RankSupport.html#tymethod.rank">Read more</a></p>
+</div><h4 id='method.limit' class='method'><code>fn <a href='../../succinct/rank/trait.RankSupport.html#tymethod.limit' class='fnname'>limit</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>The size of the vector being ranked.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='../../succinct/bit_vec/trait.BitVec.html' title='succinct::bit_vec::BitVec'>BitVec</a>&lt;Block=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;&gt; <a class='trait' href='../../succinct/bit_vec/trait.BitVec.html' title='succinct::bit_vec::BitVec'>BitVec</a> for <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2844' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#140-142' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Block' class='type'><code>type <a href='../../succinct/bit_vec/trait.BitVec.html#associatedtype.Block' class='type'>Block</a> = <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>The underlying block type used to store the bits of the vector.</p>
+</div><h4 id='method.bit_len' class='method'><code>fn <a href='../../succinct/bit_vec/trait.BitVec.html#tymethod.bit_len' class='fnname'>bit_len</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>The length of the slice in bits.</p>
+</div><h4 id='method.block_len' class='method'><code>fn <a href='../../succinct/bit_vec/trait.BitVec.html#method.block_len' class='fnname'>block_len</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>The length of the slice in blocks.</p>
+</div><h4 id='method.get_block' class='method'><code>fn <a href='../../succinct/bit_vec/trait.BitVec.html#method.get_block' class='fnname'>get_block</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>Gets the block at <code>position</code> <a href="../../succinct/bit_vec/trait.BitVec.html#method.get_block">Read more</a></p>
+</div><h4 id='method.get_bit' class='method'><code>fn <a href='../../succinct/bit_vec/trait.BitVec.html#method.get_bit' class='fnname'>get_bit</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Gets the bit at <code>position</code> <a href="../../succinct/bit_vec/trait.BitVec.html#method.get_bit">Read more</a></p>
+</div><h4 id='method.get_bits' class='method'><code>fn <a href='../../succinct/bit_vec/trait.BitVec.html#method.get_bits' class='fnname'>get_bits</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, count: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+<div class='docblock'><p>Gets <code>count</code> bits starting at bit index <code>start</code>, interpreted as a little-endian integer. <a href="../../succinct/bit_vec/trait.BitVec.html#method.get_bits">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Store:&nbsp;<a class='trait' href='../../succinct/trait.SpaceUsage.html' title='succinct::SpaceUsage'>SpaceUsage</a>&gt; <a class='trait' href='../../succinct/trait.SpaceUsage.html' title='succinct::SpaceUsage'>SpaceUsage</a> for <a class='struct' href='../../succinct/struct.Rank9.html' title='succinct::Rank9'>Rank9</a>&lt;Store&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2869' class='srclink' href='../../src/succinct/src/rank/rank9.rs.html#147-153' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.is_stack_only' class='method'><code>fn <a href='../../succinct/trait.SpaceUsage.html#tymethod.is_stack_only' class='fnname'>is_stack_only</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Is the size of this type known statically? <a href="../../succinct/trait.SpaceUsage.html#tymethod.is_stack_only">Read more</a></p>
+</div><h4 id='method.heap_bytes' class='method'><code>fn <a href='../../succinct/trait.SpaceUsage.html#tymethod.heap_bytes' class='fnname'>heap_bytes</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Calculates the heap portion of the size of an object. <a href="../../succinct/trait.SpaceUsage.html#tymethod.heap_bytes">Read more</a></p>
+</div><h4 id='method.total_bytes' class='method'><code>fn <a href='../../succinct/trait.SpaceUsage.html#method.total_bytes' class='fnname'>total_bytes</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Computes the size of the receiver in bytes. <a href="../../succinct/trait.SpaceUsage.html#method.total_bytes">Read more</a></p>
+</div><h4 id='method.stack_bytes' class='method'><code>fn <a href='../../succinct/trait.SpaceUsage.html#method.stack_bytes' class='fnname'>stack_bytes</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Calculates the stack portion of the size of this type. <a href="../../succinct/trait.SpaceUsage.html#method.stack_bytes">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "succinct";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Select0Support","Supports selecting for 0 bits."],["Select1Support","Supports selecting for 1 bits."],["SelectSupport","Supports select queries over associated type `Over`."]]});
