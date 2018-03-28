@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["IV","A vector of *k*-bit unsigned integers, where *k* is determined at run time."],["Iter","An iterator over the elements of an `IV`."]]});

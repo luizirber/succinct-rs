@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["SpaceUsage","Computes the space usage of an object."]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["BitRankSupport","Supports fast rank queries over `bool`s."],["RankSupport","Supports fast rank queries."]]});

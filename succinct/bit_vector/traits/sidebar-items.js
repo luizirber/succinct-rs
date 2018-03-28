@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["BitVec","Interface for read-only bit vector operations."],["BitVecMut","Interface for mutable bit vector operations that don’t affect the length."],["BitVecPush","Interface for full bit vector operations."]]});

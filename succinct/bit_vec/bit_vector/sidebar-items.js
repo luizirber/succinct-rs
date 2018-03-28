@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["BitVector","Uncompressed vector of bits."],["Iter","Iterator over `BitVector`."]]});

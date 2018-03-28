@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["IntVec","An immutable array of integers of limited width."],["IntVecMut","A mutable array of integers of limited width."]]});

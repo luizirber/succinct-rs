@@ -9,6 +9,7 @@
 
     <title>succinct::select::Select1Support - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -16,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc trait">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,8 +28,9 @@
     
 
     <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>select</a></p><script>window.sidebarCurrent = {name: 'Select1Support', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait Select1Support</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.select1">select1</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>select</a></p><script>window.sidebarCurrent = {name: 'Select1Support', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -42,24 +44,28 @@
         </form>
     </nav>
 
-    <section id='main' class="content trait">
-<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>select</a>::<wbr><a class='trait' href=''>Select1Support</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>select</a>::<wbr><a class="trait" href=''>Select1Support</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-3048' class='srclink' href='../../src/succinct/src/select/traits.rs.html#2-5' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/succinct/select/traits.rs.html#2-5' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Select1Support {
-    fn <a href='#tymethod.select1' class='fnname'>select1</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
+    fn <a href='#tymethod.select1' class='fnname'>select1</a>(&amp;self, index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;;
 }</pre><div class='docblock'><p>Supports selecting for 1 bits.</p>
 </div>
-            <h2 id='required-methods'>Required Methods</h2>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
             <div class='methods'>
-        <h3 id='tymethod.select1' class='method stab '><code>fn <a href='#tymethod.select1' class='fnname'>select1</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></h3><div class='docblock'><p>Returns the position of the <code>index</code>th 1 bit.</p>
+        <h3 id='tymethod.select1' class='method'><span id='select1.v' class='invisible'><code>fn <a href='#tymethod.select1' class='fnname'>select1</a>(&amp;self, index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span></h3><div class='docblock'><p>Returns the position of the <code>index</code>th 1 bit.</p>
 </div></div>
-        <h2 id='implementors'>Implementors</h2>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl Select1Support for <a class='struct' href='../../succinct/broadword/struct.Broadword.html' title='succinct::broadword::Broadword'>Broadword</a></code></li>
-<li><code>impl&lt;Rank:&nbsp;<a class='trait' href='../../succinct/rank/trait.BitRankSupport.html' title='succinct::rank::BitRankSupport'>BitRankSupport</a>&gt; Select1Support for <a class='struct' href='../../succinct/struct.BinSearchSelect.html' title='succinct::BinSearchSelect'>BinSearchSelect</a>&lt;Rank&gt;</code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../../src/succinct/broadword.rs.html#47-51' title='goto source code'>[src]</a></div><code>impl Select1Support for <a class="struct" href="../../succinct/broadword/struct.Broadword.html" title="struct succinct::broadword::Broadword">Broadword</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/succinct/select/bin_search.rs.html#53-59' title='goto source code'>[src]</a></div><code>impl&lt;Rank:&nbsp;<a class="trait" href="../../succinct/rank/trait.BitRankSupport.html" title="trait succinct::rank::BitRankSupport">BitRankSupport</a>&gt; Select1Support for <a class="struct" href="../../succinct/struct.BinSearchSelect.html" title="struct succinct::BinSearchSelect">BinSearchSelect</a>&lt;Rank&gt;</code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/succinct/select/trait.Select1Support.js">
                  </script></section>
@@ -79,13 +85,15 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
@@ -118,11 +126,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "succinct";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

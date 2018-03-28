@@ -9,6 +9,7 @@
 
     <title>succinct::int_vec - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -16,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc mod">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,8 +28,9 @@
     
 
     <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'int_vec', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'>Module int_vec</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'int_vec', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -42,41 +44,41 @@
         </form>
     </nav>
 
-    <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class='mod' href=''>int_vec</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class="mod" href=''>int_vec</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-2240' class='srclink' href='../../src/succinct/src/int_vec/mod.rs.html#1-7' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/succinct/int_vec/mod.rs.html#1-7' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Vectors of <em>k</em>-bit unsigned integers.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.IntVector.html'
-                                  title='succinct::int_vec::IntVector'>IntVector</a></td>
-                           <td class='docblock short'>
+                           <td><a class="struct" href="struct.IntVector.html"
+                                  title='struct succinct::int_vec::IntVector'>IntVector</a></td>
+                           <td class='docblock-short'>
                                 <p>Uncompressed vector of <em>k</em>-bit unsigned integers.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Iter.html'
-                                  title='succinct::int_vec::Iter'>Iter</a></td>
-                           <td class='docblock short'>
+                           <td><a class="struct" href="struct.Iter.html"
+                                  title='struct succinct::int_vec::Iter'>Iter</a></td>
+                           <td class='docblock-short'>
                                 <p>An iterator over the elements of an <a href="struct.IntVector.html"><code>IntVector</code></a>.</p>
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.IntVec.html'
-                                  title='succinct::int_vec::IntVec'>IntVec</a></td>
-                           <td class='docblock short'>
+                           <td><a class="trait" href="trait.IntVec.html"
+                                  title='trait succinct::int_vec::IntVec'>IntVec</a></td>
+                           <td class='docblock-short'>
                                 <p>An immutable array of integers of limited width.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='trait' href='trait.IntVecMut.html'
-                                  title='succinct::int_vec::IntVecMut'>IntVecMut</a></td>
-                           <td class='docblock short'>
+                           <td><a class="trait" href="trait.IntVecMut.html"
+                                  title='trait succinct::int_vec::IntVecMut'>IntVecMut</a></td>
+                           <td class='docblock-short'>
                                 <p>A mutable array of integers of limited width.</p>
                            </td>
                        </tr></table></section>
@@ -96,13 +98,15 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
@@ -135,11 +139,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "succinct";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

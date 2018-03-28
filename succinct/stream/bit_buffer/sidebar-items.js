@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["BitBuffer","A bit buffer can be used to read bits from or write bits to an underlying bit vector."]]});

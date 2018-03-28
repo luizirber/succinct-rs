@@ -9,6 +9,7 @@
 
     <title>succinct::broadword - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -16,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc mod">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,8 +28,9 @@
     
 
     <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'broadword', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'>Module broadword</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>succinct</a></p><script>window.sidebarCurrent = {name: 'broadword', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -42,12 +44,12 @@
         </form>
     </nav>
 
-    <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class='mod' href=''>broadword</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>succinct</a>::<wbr><a class="mod" href=''>broadword</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-480' class='srclink' href='../../src/succinct/src/broadword.rs.html#1-404' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/succinct/broadword.rs.html#1-404' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Broadword operations treating <code>u64</code> as a parallel vector.</p>
 
 <p>From <a href="http://sux.di.unimi.it/paper.pdf">Sebastiano Vigna, “Broadword Implementation of
@@ -62,75 +64,75 @@ were not the case, Algorithm 1 (<a href="fn.count_ones.html">count_ones</a>)
 would overflow its last line, when multiplying by L₈.</p></li>
 <li><p>Line 2 of Algorithm 2 should read</p>
 
-<pre class='rust rust-example-rendered'>
-<span class='ident'>s</span> <span class='op'>=</span> (<span class='ident'>s</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3333_3333_3333_3333</span>) <span class='op'>+</span> ((<span class='ident'>s</span> <span class='op'>&gt;&gt;</span> <span class='number'>2</span>) <span class='kw-2'>&amp;</span> <span class='number'>0x3333_3333_3333_3333</span>);</pre>
+<pre class="rust rust-example-rendered">
+<span class="ident">s</span> <span class="op">=</span> (<span class="ident">s</span> <span class="op">&amp;</span> <span class="number">0x3333_3333_3333_3333</span>) <span class="op">+</span> ((<span class="ident">s</span> <span class="op">&gt;&gt;</span> <span class="number">2</span>) <span class="op">&amp;</span> <span class="number">0x3333_3333_3333_3333</span>);</pre>
 
 <p>In the paper, the shifted <code>s</code> appears as <code>x</code>.</p></li>
 </ul>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Broadword.html'
-                                  title='succinct::broadword::Broadword'>Broadword</a></td>
-                           <td class='docblock short'>
+                           <td><a class="struct" href="struct.Broadword.html"
+                                  title='struct succinct::broadword::Broadword'>Broadword</a></td>
+                           <td class='docblock-short'>
                                 <p>Newtype for treating a <code>u64</code> as a rank or select structure.</p>
                            </td>
                        </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='constant' href='constant.H8.html'
-                                  title='succinct::broadword::H8'>H8</a></td>
-                           <td class='docblock short'>
+                           <td><a class="constant" href="constant.H8.html"
+                                  title='constant succinct::broadword::H8'>H8</a></td>
+                           <td class='docblock-short'>
                                 <p>Has the highest bit of every byte set: <code>0x8080_8080_8080_8080</code>.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='constant' href='constant.L8.html'
-                                  title='succinct::broadword::L8'>L8</a></td>
-                           <td class='docblock short'>
+                           <td><a class="constant" href="constant.L8.html"
+                                  title='constant succinct::broadword::L8'>L8</a></td>
+                           <td class='docblock-short'>
                                 <p>Has the lowest bit of every byte set: <code>0x0101_0101_0101_0101</code>.</p>
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.count_ones.html'
-                                  title='succinct::broadword::count_ones'>count_ones</a></td>
-                           <td class='docblock short'>
+                           <td><a class="fn" href="fn.count_ones.html"
+                                  title='fn succinct::broadword::count_ones'>count_ones</a></td>
+                           <td class='docblock-short'>
                                 <p>Counts the number of ones in a <code>u64</code>.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.le8.html'
-                                  title='succinct::broadword::le8'>le8</a></td>
-                           <td class='docblock short'>
+                           <td><a class="fn" href="fn.le8.html"
+                                  title='fn succinct::broadword::le8'>le8</a></td>
+                           <td class='docblock-short'>
                                 <p>Parallel ≤, treating a <code>u64</code> as a vector of 8 <code>i8</code>s.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.select1.html'
-                                  title='succinct::broadword::select1'>select1</a></td>
-                           <td class='docblock short'>
+                           <td><a class="fn" href="fn.select1.html"
+                                  title='fn succinct::broadword::select1'>select1</a></td>
+                           <td class='docblock-short'>
                                 <p>Finds the index of the <code>r</code>th one bit in <code>x</code>.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.select1_raw.html'
-                                  title='succinct::broadword::select1_raw'>select1_raw</a></td>
-                           <td class='docblock short'>
+                           <td><a class="fn" href="fn.select1_raw.html"
+                                  title='fn succinct::broadword::select1_raw'>select1_raw</a></td>
+                           <td class='docblock-short'>
                                 <p>Finds the index of the <code>r</code>th one bit in <code>x</code>, returning 72 when not found.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.u_le8.html'
-                                  title='succinct::broadword::u_le8'>u_le8</a></td>
-                           <td class='docblock short'>
+                           <td><a class="fn" href="fn.u_le8.html"
+                                  title='fn succinct::broadword::u_le8'>u_le8</a></td>
+                           <td class='docblock-short'>
                                 <p>Parallel ≤, treating a <code>u64</code> as a vector of 8 <code>u8</code>s.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.u_nz8.html'
-                                  title='succinct::broadword::u_nz8'>u_nz8</a></td>
-                           <td class='docblock short'>
+                           <td><a class="fn" href="fn.u_nz8.html"
+                                  title='fn succinct::broadword::u_nz8'>u_nz8</a></td>
+                           <td class='docblock-short'>
                                 <p>Parallel &gt;0, treating a <code>u64</code> as a vector of 8 <code>u8</code>s.</p>
                            </td>
                        </tr></table></section>
@@ -150,13 +152,15 @@ would overflow its last line, when multiplying by L₈.</p></li>
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
@@ -189,11 +193,8 @@ would overflow its last line, when multiplying by L₈.</p></li>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "succinct";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

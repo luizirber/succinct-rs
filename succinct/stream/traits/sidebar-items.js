@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["BitRead","Allows reading bits from a source."],["BitWrite","Allows writing bits to a sink."]]});

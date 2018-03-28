@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["BinSearchSelect","Performs a select query by binary searching rank queries."]]});

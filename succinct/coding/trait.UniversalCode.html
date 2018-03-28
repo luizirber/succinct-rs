@@ -9,6 +9,7 @@
 
     <title>succinct::coding::UniversalCode - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -16,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc trait">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,8 +28,9 @@
     
 
     <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>coding</a></p><script>window.sidebarCurrent = {name: 'UniversalCode', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait UniversalCode</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.encode">encode</a><a href="#tymethod.decode">decode</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../index.html'>succinct</a>::<wbr><a href='index.html'>coding</a></p><script>window.sidebarCurrent = {name: 'UniversalCode', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -42,33 +44,37 @@
         </form>
     </nav>
 
-    <section id='main' class="content trait">
-<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>coding</a>::<wbr><a class='trait' href=''>UniversalCode</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>succinct</a>::<wbr><a href='index.html'>coding</a>::<wbr><a class="trait" href=''>UniversalCode</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-533' class='srclink' href='../../src/succinct/src/coding/traits.rs.html#7-17' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/succinct/coding/traits.rs.html#7-17' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait UniversalCode {
-    fn <a href='#tymethod.encode' class='fnname'>encode</a>&lt;W:&nbsp;<a class='trait' href='../../succinct/stream/trait.BitWrite.html' title='succinct::stream::BitWrite'>BitWrite</a>&gt;(&amp;self, sink: &amp;mut W, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;;
-    fn <a href='#tymethod.decode' class='fnname'>decode</a>&lt;R:&nbsp;<a class='trait' href='../../succinct/stream/trait.BitRead.html' title='succinct::stream::BitRead'>BitRead</a>&gt;(&amp;self, source: &amp;mut R) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;&gt;;
+    fn <a href='#tymethod.encode' class='fnname'>encode</a>&lt;W:&nbsp;<a class="trait" href="../../succinct/stream/trait.BitWrite.html" title="trait succinct::stream::BitWrite">BitWrite</a>&gt;(&amp;self, sink: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, value: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="type" href="../../succinct/coding/type.Result.html" title="type succinct::coding::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;;
+<div class='item-spacer'></div>    fn <a href='#tymethod.decode' class='fnname'>decode</a>&lt;R:&nbsp;<a class="trait" href="../../succinct/stream/trait.BitRead.html" title="trait succinct::stream::BitRead">BitRead</a>&gt;(&amp;self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>R) -&gt; <a class="type" href="../../succinct/coding/type.Result.html" title="type succinct::coding::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;&gt;;
 }</pre><div class='docblock'><p>A universal code lets us encode arbitrary sized integers in a
 self-delimiting code.</p>
 </div>
-            <h2 id='required-methods'>Required Methods</h2>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
             <div class='methods'>
-        <h3 id='tymethod.encode' class='method stab '><code>fn <a href='#tymethod.encode' class='fnname'>encode</a>&lt;W:&nbsp;<a class='trait' href='../../succinct/stream/trait.BitWrite.html' title='succinct::stream::BitWrite'>BitWrite</a>&gt;(&amp;self, sink: &amp;mut W, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h3><div class='docblock'><p>Writes <code>value</code> to <code>sink</code>.</p>
-</div><h3 id='tymethod.decode' class='method stab '><code>fn <a href='#tymethod.decode' class='fnname'>decode</a>&lt;R:&nbsp;<a class='trait' href='../../succinct/stream/trait.BitRead.html' title='succinct::stream::BitRead'>BitRead</a>&gt;(&amp;self, source: &amp;mut R) -&gt; <a class='type' href='../../succinct/coding/type.Result.html' title='succinct::coding::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;&gt;</code></h3><div class='docblock'><p>Reads a value from <code>source</code>.</p>
+        <h3 id='tymethod.encode' class='method'><span id='encode.v' class='invisible'><code>fn <a href='#tymethod.encode' class='fnname'>encode</a>&lt;W:&nbsp;<a class="trait" href="../../succinct/stream/trait.BitWrite.html" title="trait succinct::stream::BitWrite">BitWrite</a>&gt;(&amp;self, sink: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, value: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="type" href="../../succinct/coding/type.Result.html" title="type succinct::coding::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span></h3><div class='docblock'><p>Writes <code>value</code> to <code>sink</code>.</p>
+</div><h3 id='tymethod.decode' class='method'><span id='decode.v' class='invisible'><code>fn <a href='#tymethod.decode' class='fnname'>decode</a>&lt;R:&nbsp;<a class="trait" href="../../succinct/stream/trait.BitRead.html" title="trait succinct::stream::BitRead">BitRead</a>&gt;(&amp;self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>R) -&gt; <a class="type" href="../../succinct/coding/type.Result.html" title="type succinct::coding::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;&gt;</code></span></h3><div class='docblock'><p>Reads a value from <code>source</code>.</p>
 
 <p><code>Ok(None)</code> indicates (benign) EOF.</p>
 </div></div>
-        <h2 id='implementors'>Implementors</h2>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl UniversalCode for <a class='struct' href='../../succinct/coding/struct.Unary.html' title='succinct::coding::Unary'>Unary</a></code></li>
-<li><code>impl&lt;Header:&nbsp;<a class='trait' href='../../succinct/coding/trait.UniversalCode.html' title='succinct::coding::UniversalCode'>UniversalCode</a>&gt; UniversalCode for <a class='struct' href='../../succinct/coding/struct.Elias.html' title='succinct::coding::Elias'>Elias</a>&lt;Header&gt;</code></li>
-<li><code>impl UniversalCode for <a class='struct' href='../../succinct/coding/struct.Omega.html' title='succinct::coding::Omega'>Omega</a></code></li>
-<li><code>impl UniversalCode for <a class='struct' href='../../succinct/coding/struct.Fibonacci.html' title='succinct::coding::Fibonacci'>Fibonacci</a></code></li>
-<li><code>impl UniversalCode for <a class='struct' href='../../succinct/coding/struct.Comma.html' title='succinct::coding::Comma'>Comma</a></code></li>
-<li><code>impl&lt;Code:&nbsp;<a class='trait' href='../../succinct/coding/trait.UniversalCode.html' title='succinct::coding::UniversalCode'>UniversalCode</a>&gt; UniversalCode for <a class='struct' href='../../succinct/coding/struct.Lift0.html' title='succinct::coding::Lift0'>Lift0</a>&lt;Code&gt;</code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../../src/succinct/coding/unary.rs.html#8-38' title='goto source code'>[src]</a></div><code>impl UniversalCode for <a class="struct" href="../../succinct/coding/struct.Unary.html" title="struct succinct::coding::Unary">Unary</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/succinct/coding/elias.rs.html#30-55' title='goto source code'>[src]</a></div><code>impl&lt;Header:&nbsp;<a class="trait" href="../../succinct/coding/trait.UniversalCode.html" title="trait succinct::coding::UniversalCode">UniversalCode</a>&gt; UniversalCode for <a class="struct" href="../../succinct/coding/struct.Elias.html" title="struct succinct::coding::Elias">Elias</a>&lt;Header&gt;</code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/succinct/coding/elias.rs.html#57-95' title='goto source code'>[src]</a></div><code>impl UniversalCode for <a class="struct" href="../../succinct/coding/struct.Omega.html" title="struct succinct::coding::Omega">Omega</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/succinct/coding/fib.rs.html#39-95' title='goto source code'>[src]</a></div><code>impl UniversalCode for <a class="struct" href="../../succinct/coding/struct.Fibonacci.html" title="struct succinct::coding::Fibonacci">Fibonacci</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/succinct/coding/comma.rs.html#11-48' title='goto source code'>[src]</a></div><code>impl UniversalCode for <a class="struct" href="../../succinct/coding/struct.Comma.html" title="struct succinct::coding::Comma">Comma</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/succinct/coding/trans.rs.html#11-26' title='goto source code'>[src]</a></div><code>impl&lt;Code:&nbsp;<a class="trait" href="../../succinct/coding/trait.UniversalCode.html" title="trait succinct::coding::UniversalCode">UniversalCode</a>&gt; UniversalCode for <a class="struct" href="../../succinct/coding/struct.Lift0.html" title="struct succinct::coding::Lift0">Lift0</a>&lt;Code&gt;</code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/succinct/coding/trait.UniversalCode.js">
                  </script></section>
@@ -88,13 +94,15 @@ self-delimiting code.</p>
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
@@ -127,11 +135,8 @@ self-delimiting code.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "succinct";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

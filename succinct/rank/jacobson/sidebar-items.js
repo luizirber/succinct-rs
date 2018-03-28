@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["JacobsonRank","Jacobson’s rank structure for fast rank queries over a `BitVec`."]]});
